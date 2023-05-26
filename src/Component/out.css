@@ -1,0 +1,36 @@
+/* style={{display:"flex",justifyContent:'space-evenly',width:'40%',margin:'auto'}} */
+
+
+
+
+.resultdiv{
+    display: grid;
+    width: 80%;
+    margin: auto;
+    grid-template-columns: repeat(3,1fr)
+    
+    
+}
+
+
+@media all and  (min-width:130px) and (max-width:600px){
+    .resultdiv{
+        display: grid;
+        width: 40%;
+        margin: auto;
+        grid-template-columns: repeat(1,1fr)
+        
+        
+    }
+}
+
+@media all and (min-width:600px) and (max-width:1024px){
+    .resultdiv{
+        display: grid;
+        width: 50%;
+        margin: auto;
+        grid-template-columns: repeat(3,1fr)
+        
+        
+    }
+}

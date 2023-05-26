@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { addapi } from '../Redux/action';
+import { accuthreshould, addapi, wpmthreshould } from '../Redux/action';
+import './Control.css'
 
 function Controlpanel() {
 
@@ -9,6 +10,8 @@ function Controlpanel() {
     
     const [combination ,setcombination]=useState(3)
     const [repetation ,setrepetation]=useState(1)
+    const [threshouldacu,setthreshouldacu]=useState(0)
+    const [threshouldawpm,setthreshouldawpm]=useState(0)
 
 
     
@@ -50,6 +53,19 @@ function Controlpanel() {
             
     }
 
+    const handlewpmthreshould=(e)=>{
+        let payload=e.target.value
+        dispatch(wpmthreshould(payload))
+
+    }
+
+    const handleaccuthreshould=(e)=>{
+        let payload=e.target.value
+        dispatch(accuthreshould(payload))
+    }
+
+
+
     
 
    
@@ -61,8 +77,8 @@ function Controlpanel() {
 
   return (
     <React.Fragment>
-        <div style={{display:'flex',flexDirection:'row',justifyContent:'space-evenly',margin:'auto',gap:"30px",padding:"60px",backgroundColor:"#303030"}}>
-            <div style={{display:'flex',flexDirection:'column',border:"1px solid red",width:"25%"}} >
+        <div className='maindiv'>
+            <div className='innerdiv' >
                 <h1 style={{color:"white"}}>Source</h1>
 
                 <div>
@@ -88,29 +104,29 @@ function Controlpanel() {
                
             </div>
 
-            <div style={{display:'flex',flexDirection:'column',border:"1px solid red",width:"25%"}}>
+            <div className='innerdiv'>
                 <h1 style={{color:"white"}}>Scope</h1>
 
                 <div>
-                    <input type="radio" />
+                    <input type="radio" name='top' onClick={handleradiovalue}/>
                     <label style={{color:"white"}}>Top 50</label>
                 </div>
                 <div>
-                    <input type="radio" />
+                    <input type="radio" name='top' onClick={handleradiovalue}/>
                     <label style={{color:"white"}}>Top 100</label>
                 </div>
                 <div>
-                    <input type="radio" />
+                    <input type="radio" name='top' onClick={handleradiovalue}/>
                     <label style={{color:"white"}}>Top 150</label>
                 </div>
                 <div>
-                    <input type="radio" />
+                    <input type="radio" name='top' onClick={handleradiovalue}/>
                     <label style={{color:"white"}}>Top 200</label>
                 </div>
             
             </div>
 
-            <div style={{display:'flex',flexDirection:'column',border:"1px solid red",width:"25%"}}>
+            <div className='innerdiv'>
                 <h1 style={{color:"white"}}>Generator</h1>
 
                 <div style={{display:'flex',flexDirection:'column',textAlign:"start",width:"40%"}}>
@@ -125,17 +141,17 @@ function Controlpanel() {
 
             </div>
 
-            <div style={{display:'flex',flexDirection:'column',border:"1px solid red",width:"25%"}}>
+            <div className='innerdiv'>
                 <h1 style={{color:"white"}}>Threshould</h1>
 
                 <div style={{display:'flex',flexDirection:'column',textAlign:"start",width:"40%"}}>
                     <label style={{color:"white"}}>WPM</label>
-                    <input type="text"  />
+                    <input type="text" onChange={handlewpmthreshould} />
                 </div>
 
                 <div style={{display:'flex',flexDirection:'column',textAlign:"start",width:"40%"}}>
                     <label style={{color:"white"}}>Accuracy</label>
-                    <input type="text" />
+                    <input type="text" onChange={handleaccuthreshould} />
                 </div>
 
             </div>

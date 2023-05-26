@@ -3,7 +3,9 @@ import * as types from "./action.type"
 
 const initial={
     str:[],
-    average:[]
+    average:[],
+    wpm:0,
+    accuracy:0,
 }
 
 
@@ -20,6 +22,19 @@ export const typereducer=(state=initial,{type,payload})=>{
             return{
                 ...state,
                 average:[...state.average,payload]
+            }
+        }
+
+        case types.WPMTHR:{
+            return {
+                ...state,
+                wpm:payload
+            }
+        }
+        case types.ACCUTHR:{
+            return{
+                ...state,
+                accuracy:payload
             }
         }
 

@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { averageapi } from '../Redux/action';
+import './out.css'
 
 function Output() {
 
 
     const string=useSelector((store)=>store.typereducer)
     const average=useSelector((store)=>store.typereducer.average)
+    const wpmthre=useSelector((store)=>store.typereducer.wpm)
+    const accuthre=useSelector((store)=>store.typereducer.accuracy)
     const dispatch=useDispatch()
     // console.log("average",average)
     var s = string.str;
@@ -16,7 +19,7 @@ function Output() {
     const [wpm,setwpm]=useState(0)
     const [avg,setavg]=useState(0)
     const input=useRef()
-    
+
     // const [wrongcolor,setwrongcolor]=useState(false)
 
     useEffect(()=>{
@@ -86,7 +89,7 @@ function Output() {
                 setacu(accuracy)
         }
 
-        if(average.length>0){
+        if((average.length>0)&& (wpm>=wpmthre) && (acu>=accuthre)){
             let sum=0
             for(var i=0;i<average.length;i++){
                 sum=sum+average[i]
@@ -133,7 +136,7 @@ function Output() {
             </div>
 
 
-            <div style={{display:"flex",justifyContent:'space-evenly',width:'40%',margin:'auto'}}>
+            <div className='resultdiv'>
                 <h4 style={{fontSize:"20px",color:'#fff'}}>WPM:{wpm}</h4>
                 <h4 style={{fontSize:"20px",color:'#fff'}}>Accuracy:{acu}%</h4>
                 <h4 style={{fontSize:"20px",color:'#fff'}}>Average WPM:{avg}</h4>
