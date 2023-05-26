@@ -5,8 +5,13 @@ import { addapi } from '../Redux/action';
 function Controlpanel() {
 
     const dispatch=useDispatch()
-    const [combination ,setcombination]=useState(1)
+    const radio=useRef([])
+    
+    const [combination ,setcombination]=useState(3)
     const [repetation ,setrepetation]=useState(1)
+
+
+    
 
    
       function shuffle(s,num) {
@@ -25,12 +30,8 @@ function Controlpanel() {
       }
 
 
-    //   useEffect(()=>{
-        
-    //   },[combination,repetation])
-
-
       const handleradiovalue=()=>{
+
         var s = 'asdfjkl';
         let repeat_arr=[]
         // s = shuffle(s,combination);
@@ -46,12 +47,10 @@ function Controlpanel() {
         dispatch(addapi(repeat_arr))
         
         
-
-
-        // console.log(repeat_arr);
-
             
     }
+
+    
 
    
 
@@ -63,27 +62,27 @@ function Controlpanel() {
   return (
     <React.Fragment>
         <div style={{display:'flex',flexDirection:'row',justifyContent:'space-evenly',margin:'auto',gap:"30px",padding:"60px",backgroundColor:"#303030"}}>
-            <div style={{display:'flex',flexDirection:'column',border:"1px solid red",width:"25%"}}>
+            <div style={{display:'flex',flexDirection:'column',border:"1px solid red",width:"25%"}} >
                 <h1 style={{color:"white"}}>Source</h1>
 
                 <div>
-                    <input type="radio"  onClick={handleradiovalue} onChange={()=>setcombination(2)}/>
+                    <input type="radio"  onClick={handleradiovalue} name="b" />
                     <label style={{color:"white"}}>Bigarium</label>
                 </div>
                 <div>
-                    <input type="radio" onClick={handleradiovalue} onChange={()=>setcombination(3)}/>
+                    <input type="radio" onClick={handleradiovalue} name='b' />
                     <label style={{color:"white"}}>Trigrams</label>
                 </div>
                 <div>
-                    <input type="radio" />
-                    <label style={{color:"white"}} onClick={handleradiovalue} onChange={()=>setcombination(4)}>Tetragrams</label>
+                    <input type="radio" name="b" onClick={handleradiovalue} />
+                    <label style={{color:"white"}}   >Tetragrams</label>
                 </div>
                 <div>
-                    <input type="radio" />
-                    <label style={{color:"white"}} onClick={handleradiovalue} onChange={()=>setcombination(5)}>Words</label>
+                    <input type="radio" name='b' onClick={handleradiovalue} />
+                    <label style={{color:"white"}}  >Words</label>
                 </div>
                 <div>
-                    <input type="radio" />
+                    <input type="radio" name='b' onClick={handleradiovalue}/>
                     <label style={{color:"green"}}>Custom</label>
                 </div>
                

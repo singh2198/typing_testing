@@ -3,7 +3,7 @@ import * as types from "./action.type"
 
 const initial={
     str:[],
-    key:0
+    average:[]
 }
 
 
@@ -13,6 +13,13 @@ export const typereducer=(state=initial,{type,payload})=>{
             return {
                 ...state,
                 str:payload
+            }
+        }
+
+        case types.AVERAGE:{
+            return{
+                ...state,
+                average:[...state.average,payload]
             }
         }
 

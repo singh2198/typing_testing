@@ -1,14 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import { averageapi } from '../Redux/action';
 
 function Output() {
 
 
     const string=useSelector((store)=>store.typereducer)
-    // console.log(string.str)
+    const average=useSelector((store)=>store.typereducer.average)
+    const dispatch=useDispatch()
+    // console.log("average",average)
+    var s = string.str;
+    let startime=Math.round(Date.now() / 1000);
+    const [type,setyping]=useState("")
+    const [acu,setacu]=useState(0)
+    const [wpm,setwpm]=useState(0)
+    const [avg,setavg]=useState(0)
+    const input=useRef()
+    
+    // const [wrongcolor,setwrongcolor]=useState(false)
 
-    // const [type,setyping]=useState("")
-    // const [data,setdata]=useState("")
+    useEffect(()=>{
+        shuffle(s)
+        
+        
+    },[s])
+    
 
 
     function getRandomInt(n) {
@@ -25,60 +41,63 @@ function Output() {
           arr[j] = temp;
         }
         
-        s = arr.join(' ');  
-        console.log(s.toString())              
-        return s;                       
-      }
-      var s = string.str;
-      s=shuffle(s)
-      let str=[]
-      for(var i=0;i<s.length;i++){
-        str.push(s[i])
+        s = arr.join(' ');
+        setyping(s)  
+                              
       }
       
-      console.log(str.length)
-      
-      
-      
-    //   console.log(s);
+    
+    
     let k=0
     let wrong=0
+    let accuracy=0
     const handletype=(e)=>{
-        // console.log(s)
-        // console.log(type)
-        // console.log(e.target.value)
         let value=e.target.value
-        console.log(value[value.length-1])
-        // setyping(e.target.value)
+        // console.log(value[value.length-1],type[k],k)
 
-        if(k<=s.length){
-            // console.log(value[value.length-1],str[k],k)
-            if(value[value.length-1]==str[k]){
+        if(k<=type.length){
+            if(value[value.length-1]===type[k]){
                 k++
-                
             }
-            else if((value[value.length-1]==" ") & str[k]==" "){
-                k++
-        
-            }
+            // else if((value[value.length-1]=="") & type[k]==""){
+            //     console.log("inc k when empty")
+            //     setwrongcolor(false)
+            //     k++
+            // }
             else{
-                // alert("Word")
                 wrong++
             }
         }
-        // value=""
-        // console.log(k)
+        
+        // console.log(wrongcolor)
+        // console.log("wrong",wrong,"k",k,"type",type.length)
+       
+  
+        
+        if(k==type.length){
+            let n=type.length-wrong
+                accuracy=Math.floor((100/type.length)*(n))
+                let endtime=Math.round(Date.now() / 1000);
+
+                let w=endtime-startime
+                let wpmtime=Math.floor((k/w)*60)
+                dispatch(averageapi(wpmtime))
+                setwpm(wpmtime)
+                setacu(accuracy)
+        }
+
+        if(average.length>0){
+            let sum=0
+            for(var i=0;i<average.length;i++){
+                sum=sum+average[i]
+            }
+            setavg(sum/average.length)
+        }
 
     }
-    // let n=str.length-wrong
-    // console.log(n)
-    console.log("wrong",wrong)
 
-    let accuracy=str.length-wrong
     
-    console.log(accuracy)
     
-
 
 
   return (
@@ -89,15 +108,15 @@ function Output() {
                 <h4>Lesson 1/100</h4>
             </div>
 
-            <div style={{border:'',backgroundColor:'#375a7f',width:'80%',padding:'',margin:'auto',height:'68px',marginBottom:'10px'}}>
-                <h3 style={{width:'100%'}}>{s}</h3>
+            <div style={{border:'',backgroundColor:'#375a7f',width:'80%',height:'',margin:'auto',marginBottom:'10px',overflow:'auto', minHeight:'68px'}}>
+                <h3 style={{width:'100%',height:'100%'}}>{type}</h3>
             </div>
 
             <div style={{width:'80%' ,margin:'auto'}}>
                 <input
                  placeholder="Retype if failed press <TAB> or <ES>" type='text'
                  style={{border:'1px solid blue',
-                 backgroundColor:'white',
+                //  backgroundColor: wrongcolor ? 'red' :'white',
                  width:'100%',
                 borderRadius:'10px',
                  margin:'auto',
@@ -106,6 +125,8 @@ function Output() {
                  height:"60px",
                  textAlign:'center'}} 
                  onChange={handletype}
+                ref={input}
+                
                  
                  
                  />
@@ -113,9 +134,9 @@ function Output() {
 
 
             <div style={{display:"flex",justifyContent:'space-evenly',width:'40%',margin:'auto'}}>
-                <h4 style={{fontSize:"20px",color:'#fff'}}>WPM:0</h4>
-                <h4 style={{fontSize:"20px",color:'#fff'}}>Accuracy:%</h4>
-                <h4 style={{fontSize:"20px",color:'#fff'}}>Average WPM:0</h4>
+                <h4 style={{fontSize:"20px",color:'#fff'}}>WPM:{wpm}</h4>
+                <h4 style={{fontSize:"20px",color:'#fff'}}>Accuracy:{acu}%</h4>
+                <h4 style={{fontSize:"20px",color:'#fff'}}>Average WPM:{avg}</h4>
 
             </div>
 
