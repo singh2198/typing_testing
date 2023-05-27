@@ -76,7 +76,7 @@ function Output() {
       clr.current.style.backgroundColor = "white";
       let w = endtime - startime;
       let wpmtime = Math.floor((k / w) * 60);
-      console.log(wpmtime)
+      
       dispatch(averageapi(wpmtime));
       setwpm(wpmtime);
       setacu(accuracy);
