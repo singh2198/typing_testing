@@ -4,10 +4,12 @@
 .maindiv{
     background-color:#303030 ;
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(4,1fr);
     margin: auto;
     gap: 40px;
     padding: 60px;
+    
     
 }
 .innerdiv{
@@ -20,8 +22,10 @@
 }
 
 
-@media all and  (min-width:130px) and (max-width:600px){
+@media all and  (min-width:10px) and (max-width:600px){
     .maindiv{
+        background-color:#303030 ;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(1,1fr);
         margin: auto;

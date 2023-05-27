@@ -1,6 +1,6 @@
 /* style={{display:"flex",justifyContent:'space-evenly',width:'40%',margin:'auto'}} */
-
-
+/* style={{display:'flex',flexDirection:'column',textAlign:'center',border:'',height:'full',backgroundColor:"#303030"}} */
+/* style={{display:'flex',flexDirection:'column',textAlign:'center',border:'',height:'full',backgroundColor:"#303030"}} */
 
 
 .resultdiv{
@@ -11,9 +11,25 @@
     
     
 }
+.main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: full;
+    width: 100%;
+    background-color:#303030 ;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* border: ;     */
+    height: full;
+    background-color:#303030 ;
+}
 
 
-@media all and  (min-width:130px) and (max-width:600px){
+@media all and  (min-width:10px) and (max-width:600px){
     .resultdiv{
         display: grid;
         width: 40%;
@@ -22,15 +38,57 @@
         
         
     }
+    .main{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: full;
+        width: 100%;
+        background-color:#303030 ;
+        padding: 60px;
+        margin: auto;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        height: full;
+        background-color:#303030 ;
+        padding: 60px;
+        margin: auto;
+    }
 }
 
-@media all and (min-width:600px) and (max-width:1024px){
+@media all and (min-width:601px) and (max-width:1024px){
     .resultdiv{
         display: grid;
-        width: 50%;
+        width: 66%;
         margin: auto;
-        grid-template-columns: repeat(3,1fr)
+        grid-template-columns: repeat(3,1fr);
+        /* border: 1px solid red; */
         
         
+        
+    }
+    .main{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: full;
+        width: 100%;
+        background-color:#303030 ;
+        padding: 60px;
+        margin: auto;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        height: full;
+        background-color:#303030 ;
+        padding: 60px;
+        margin: auto;
     }
 }
