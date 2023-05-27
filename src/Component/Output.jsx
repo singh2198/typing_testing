@@ -23,6 +23,7 @@ function Output() {
 
   useEffect(() => {
     shuffle(s);
+    startime = Math.round(Date.now() / 1000);
   }, [s]);
 
   function getRandomInt(n) {
@@ -55,17 +56,16 @@ function Output() {
         clr.current.style.backgroundColor = "white";
         k++;
       }
-      // else if((value[value.length-1]=="") & type[k]==""){
-      //     console.log("inc k when empty")
-      //     setwrongcolor(false)
-      //     k++
-      // }
+      else if(value[value.length-1]==undefined){
+        clr.current.style.backgroundColor = "white";
+      }
       else {
         clr.current.style.backgroundColor = "#E7BBDC";
         wrong++;
       }
     }
-
+    
+    //   clr.current.style.backgroundColor = "white";
     // console.log(wrongcolor)
     // console.log("wrong",wrong,"k",k,"type",type.length)
 
@@ -76,9 +76,11 @@ function Output() {
       clr.current.style.backgroundColor = "white";
       let w = endtime - startime;
       let wpmtime = Math.floor((k / w) * 60);
+      console.log(wpmtime)
       dispatch(averageapi(wpmtime));
       setwpm(wpmtime);
       setacu(accuracy);
+      
     }
 
     if (average.length > 0 && wpm >= wpmthre && acu >= accuthre) {
@@ -87,7 +89,7 @@ function Output() {
         sum = sum + average[i];
       }
       setavg(sum / average.length);
-      clr.current.style.backgroundColor = "white";
+    //   clr.current.style.backgroundColor = "white";
     }
   };
 
