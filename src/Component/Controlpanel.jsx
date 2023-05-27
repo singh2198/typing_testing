@@ -58,31 +58,31 @@ function Controlpanel() {
 
           <div>
             <input type="radio" onClick={handleradiovalue} name="b" />
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white", }}>
               Bigarium
             </label>
           </div>
           <div>
             <input type="radio" onClick={handleradiovalue} name="b" />
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white", }}>
               Trigrams
             </label>
           </div>
           <div>
             <input type="radio" name="b" onClick={handleradiovalue} />
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white", }}>
               Tetragrams
             </label>
           </div>
           <div>
             <input type="radio" name="b" onClick={handleradiovalue} />
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white",  }}>
               Words
             </label>
           </div>
           <div>
             <input type="radio" name="b" onClick={handleradiovalue} />
-            <label style={{ color: "green", fontFamily: "cursive" }}>
+            <label style={{ color: "green",  }}>
               Custom
             </label>
           </div>
@@ -93,25 +93,25 @@ function Controlpanel() {
 
           <div>
             <input type="radio" name="top" onClick={handleradiovalue} />
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white",  }}>
               Top 50
             </label>
           </div>
           <div>
             <input type="radio" name="top" onClick={handleradiovalue} />
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white",  }}>
               Top 100
             </label>
           </div>
           <div>
             <input type="radio" name="top" onClick={handleradiovalue} />
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white",  }}>
               Top 150
             </label>
           </div>
           <div>
             <input type="radio" name="top" onClick={handleradiovalue} />
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white",  }}>
               Top 200
             </label>
           </div>
@@ -128,7 +128,7 @@ function Controlpanel() {
               width: "40%",
             }}
           >
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white",  }}>
               Combination
             </label>
             <input
@@ -146,7 +146,7 @@ function Controlpanel() {
               width: "40%",
             }}
           >
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white", }}>
               Repetition
             </label>
             <input
@@ -168,7 +168,7 @@ function Controlpanel() {
               width: "40%",
             }}
           >
-            <label style={{ color: "white", fontFamily: "cursive" }}>WPM</label>
+            <label style={{ color: "white",  }}>WPM</label>
             <input type="text" onChange={handlewpmthreshould} />
           </div>
 
@@ -180,7 +180,7 @@ function Controlpanel() {
               width: "40%",
             }}
           >
-            <label style={{ color: "white", fontFamily: "cursive" }}>
+            <label style={{ color: "white",  }}>
               Accuracy
             </label>
             <input type="text" onChange={handleaccuthreshould} />

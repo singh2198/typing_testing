@@ -110,7 +110,7 @@ function Output() {
             minHeight: "68px",
           }}
         >
-          <h2 style={{ width: "100%", height: "100%",fontFamily:'cursive' }}>{type}</h2>
+          <h2 style={{ width: "100%", height: "100%", }}>{type}</h2>
         </div>
 
         <div style={{ width: "80%", margin: "auto" }}>
@@ -127,7 +127,7 @@ function Output() {
               fontSize: "18px",
               height: "60px",
               textAlign: "center",
-              fontFamily:'cursive'
+              
             }}
             onChange={handletype}
             ref={clr}
@@ -135,9 +135,9 @@ function Output() {
         </div>
 
         <div className="resultdiv">
-          <h4 style={{ fontSize: "20px", color: "#fff",fontFamily:'cursive' }}>WPM:{wpm}</h4>
-          <h4 style={{ fontSize: "20px", color: "#fff" ,fontFamily:'cursive' }}>Accuracy:{acu}%</h4>
-          <h4 style={{ fontSize: "20px", color: "#fff" ,fontFamily:'cursive'}}>Average WPM:{avg}</h4>
+          <h4 style={{ fontSize: "20px", color: "#fff", }}>WPM:{wpm}</h4>
+          <h4 style={{ fontSize: "20px", color: "#fff" , }}>Accuracy:{acu}%</h4>
+          <h4 style={{ fontSize: "20px", color: "#fff" ,}}>Average WPM:{avg}</h4>
         </div>
       </div>
 
@@ -145,28 +145,28 @@ function Output() {
         <div
           style={{ width: "100%", backgroundColor: "#2D394D", margin: "10px" }}
         >
-          <h3 style={{ color: "#00BC8C" ,fontFamily:'cursive'}}>Ngram Type</h3>
+          <h3 style={{ color: "#00BC8C" ,}}>Ngram Type</h3>
         </div>
 
         <div className="resultdiv">
           <a
             href="https://github.com/ranelpadon/ngram-type#features"
             target="_blank"
-            style={{ textDecoration: "none", color: "#00BC8C" ,fontFamily:'cursive'}}
+            style={{ textDecoration: "none", color: "#00BC8C" ,}}
           >
             How to use
           </a>
           <a
             href="https://github.com/ranelpadon/ngram-type/issues/new"
             target="_blank"
-            style={{ textDecoration: "none", color: "#00BC8C" ,fontFamily:'cursive'}}
+            style={{ textDecoration: "none", color: "#00BC8C" ,}}
           >
             Suggest Improvents
           </a>
           <a
             href="https://ko-fi.com/ranelpadon"
             target="_blank"
-            style={{ textDecoration: "none", color: "#00BC8C",fontFamily:'cursive' }}
+            style={{ textDecoration: "none", color: "#00BC8C" }}
           >
             Buy me a Coffee
           </a>
