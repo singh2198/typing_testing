@@ -20,6 +20,11 @@ function Output() {
 
   const [wrongcolor, setwrongcolor] = useState(true);
   const clr = useRef(true);
+  const typesound=useRef()
+  const errorsound=useRef()
+
+  let audio =  new Audio('typeSound.mp3')
+  let ersound=new Audio('error.mp3')
 
   useEffect(() => {
     shuffle(s);
@@ -48,12 +53,19 @@ function Output() {
   let wrong = 0;
   let accuracy = 0;
   const handletype = (e) => {
+    
     let value = e.target.value;
     // console.log(value[value.length-1],type[k],k)
 
     if (k <= type.length) {
       if (value[value.length - 1] === type[k]) {
         clr.current.style.backgroundColor = "white";
+        if(typesound.current.checked==false){
+          audio.pause()
+        }
+        else{
+          audio.play()
+        }
         k++;
       }
       else if(value[value.length-1]==undefined){
@@ -61,9 +73,18 @@ function Output() {
       }
       else {
         clr.current.style.backgroundColor = "#E7BBDC";
+
+        if(errorsound.current.checked==false){
+          ersound.pause()
+        }
+        else{
+          ersound.play()
+        }
         wrong++;
       }
+      
     }
+    // audio.pause()
     
     //   clr.current.style.backgroundColor = "white";
     // console.log(wrongcolor)
@@ -88,17 +109,30 @@ function Output() {
       for (var i = 0; i < average.length; i++) {
         sum = sum + average[i];
       }
-      setavg(sum / average.length);
-    //   clr.current.style.backgroundColor = "white";
+      // setavg(sum / average.length);
+      setavg(Math.floor(sum/average.length));
+      
+    
     }
   };
+
+ 
 
   return (
     <React.Fragment>
       <div className="main">
+      <div className="sound">
         <div>
-          
+          <label >Typing Sound</label>
+          <input type="checkbox"  ref={typesound}/>
         </div>
+
+        <div>
+          <label >Error Sound</label>
+          <input type="checkbox"   ref={errorsound}/>
+        </div>
+
+      </div>
 
         <div
           style={{
@@ -129,7 +163,7 @@ function Output() {
               fontSize: "18px",
               height: "60px",
               textAlign: "center",
-              
+
             }}
             onChange={handletype}
             ref={clr}

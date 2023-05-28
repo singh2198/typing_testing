@@ -50,11 +50,16 @@ function Controlpanel() {
     dispatch(accuthreshould(payload));
   };
 
+ 
+
   return (
     <React.Fragment>
+       <div className="info">
+        <p>Below Threshould value is not Added to Average WPM</p>
+      </div>
       <div className="maindiv">
         <div className="innerdiv">
-          <h1 style={{ color: "white", fontFamily: "cursive" }}>Source</h1>
+          <h2 style={{ color: "white", fontFamily: "cursive" }}>Source</h2>
 
           <div>
             <input type="radio" onClick={handleradiovalue} name="b" />
@@ -89,7 +94,7 @@ function Controlpanel() {
         </div>
 
         <div className="innerdiv">
-          <h1 style={{ color: "white", fontFamily: "cursive" }}>Scope</h1>
+          <h2 style={{ color: "white", fontFamily: "cursive" }}>Scope</h2>
 
           <div>
             <input type="radio" name="top" onClick={handleradiovalue} />
@@ -118,7 +123,7 @@ function Controlpanel() {
         </div>
 
         <div className="innerdiv">
-          <h1 style={{ color: "white", fontFamily: "cursive" }}>Generator</h1>
+          <h2 style={{ color: "white", fontFamily: "cursive" }}>Generator</h2>
 
           <div
             style={{
@@ -158,7 +163,7 @@ function Controlpanel() {
         </div>
 
         <div className="innerdiv">
-          <h1 style={{ color: "white", fontFamily: "cursive" }}>Threshould</h1>
+          <h2 style={{ color: "white", fontFamily: "cursive" }}>Threshould</h2>
 
           <div
             style={{
@@ -187,6 +192,10 @@ function Controlpanel() {
           </div>
         </div>
       </div>
+
+      
+
+      
     </React.Fragment>
   );
 }
